@@ -1,7 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router,Route, Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 
 import './App.css'
+import { CategoryList, Category } from './components/Category'
 import { PictureList } from './components/Picture'
 import { Home } from './components/Home'
 const App = () => {
@@ -9,16 +10,20 @@ const App = () => {
 
   return (
     <div>
-      <Router>
+
+
+      <div>
         <div>
-          <div>
-            <Link style={padding} to="/">home</Link>
-            <Link style={padding} to="/pictures">pictures</Link>
-          </div>
-          <Route exact path="/" render={() => <Home />} />
-          <Route exact path="/pictures" render={() => <PictureList />} />
+          <Link style={padding} to="/">home</Link>
+          <Link style={padding} to="/categories">categories</Link>
+          <Link style={padding} to="/pictures">pictures</Link>
         </div>
-      </Router>
+        <Route exact path="/" render={() => <Home />} />
+        <Route exact path="/categories" component={CategoryList} />
+        <Route exact path="/categories/:id" component={Category} />
+        <Route exact path="/pictures" render={() => <PictureList />} />
+      </div>
+
     </div>
   )
 }

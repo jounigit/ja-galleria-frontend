@@ -7,6 +7,7 @@ const Home = () => {
           Kuvagalleria
       </h1>
 
+      <p>pois siitä</p>
     </div>
   )
 }
