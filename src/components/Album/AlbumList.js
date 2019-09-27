@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Album from './Album'
+// import Album from './Album'
 
 const AlbumList = ({ albums }) => {
   console.log('DATA -- ', albums.loading)
@@ -13,7 +13,7 @@ const AlbumList = ({ albums }) => {
       <h2>Albumit</h2>
       {albums.data &&
           albums.data.map(album =>
-            <Album key={album.id} album={album} />
+            <li key={album.id}>{album.title}</li>
           )
       }
     </Fragment>
