@@ -33,9 +33,7 @@ const App = () => {
           </div>
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/categories" render={() => <CategoryList categories={categories} />} />
-          
           <Route exact path="/albums" render={() => <AlbumList albums={albums} />} />
-          
           <Route exact path="/pictures" render={() => <PictureList pictures={pictures} />} />
           {/* <Route exact path="/categories/:id" render={({ match }) =>
             <Category
