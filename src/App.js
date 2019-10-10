@@ -5,7 +5,7 @@ import './App.css'
 import { PictureList } from './components/Picture'
 import { Home } from './components/Home'
 import { CategoryList } from './components/Category/'
-import { AlbumList } from './components/Album'
+import { AlbumList, Album } from './components/Album'
 const baseUrl = 'http://localhost:8000/api'
 
 const App = () => {
@@ -18,6 +18,14 @@ const App = () => {
   const albums = useFetch(
     `${baseUrl}/albums`
   )
+
+  console.log('albums at App 1:: ', albums)
+  if(albums.loading) {
+    return <div className='loader'>Loading ...</div>
+  }
+
+
+  console.log('albums at App 2:: ', albums)
 
   const padding = { padding: 5 }
 
@@ -35,6 +43,10 @@ const App = () => {
           <Route exact path="/categories" render={() => <CategoryList categories={categories} />} />
           <Route exact path="/albums" render={() => <AlbumList albums={albums} />} />
           <Route exact path="/pictures" render={() => <PictureList pictures={pictures} />} />
+          <Route exact path="/albums/:id" render={({ match }) =>
+            <Album
+              album = {albums.data.find(a => a.id === match.params.id)}
+            />} />
           {/* <Route exact path="/categories/:id" render={({ match }) =>
             <Category
               category = {categories.data.data.find(c => c.id === match.params.id)}

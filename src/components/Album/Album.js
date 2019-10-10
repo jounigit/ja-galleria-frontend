@@ -3,10 +3,10 @@ import { Picture } from '../Picture'
 
 const Album = ( { album }) => {
   const [visible, setVisible] = useState(false)
-  console.log('CAT -- ', album.pictures)
-  const pictures = () => album.pictures.map(p =>
-    <Picture key={p.id} picture={p} />
-  )
+  console.log('ALBUM at album -- ', album)
+  // const pictures = () => album.pictures.map(p =>
+  //   <Picture key={p.id} picture={p} />
+  // )
 
   const showWhenVisible = { display: visible ? '' : 'none' }
   const linkable = {
@@ -28,9 +28,9 @@ const Album = ( { album }) => {
           {album.user.name}
         </h4>
         <h3>Pictures</h3>
-        <ul>
+        {/* <ul>
           {pictures().length > 0 ? pictures() : 'no albums'}
-        </ul>
+        </ul> */}
       </div>
     </Fragment>
   )
