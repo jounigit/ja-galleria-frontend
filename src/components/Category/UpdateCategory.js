@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Header, Button, Container, Modal, Icon } from 'semantic-ui-react'
+import { Header, Button, Container, Modal, Icon, Transition } from 'semantic-ui-react'
 import { CategoryContext } from '../../contexts/CategoryContext'
 import apiService from '../../services/apiService'
 import { UPDATE_CATEGORY } from '../../reducers/actionTypes'
@@ -13,10 +13,12 @@ const UpdateCategory = ({ id, title, content } ) => {
     errorMessage: null,
     message: null
   }
+
   const [data, setData] = useState(initialState)
   const { dispatch } = useContext(CategoryContext)
 
   // :::::::::::::::::::::::::::::::::::: //
+
   // hande input values
   const handleInputChange = event => {
     setData({
@@ -90,6 +92,8 @@ const UpdateCategory = ({ id, title, content } ) => {
 
   return ( // <Modal as={Form} onSubmit={e => handleSubmit(e)} open={true} size="tiny">
     <Container>
+ 
+
       <Modal trigger={ updateButton }  size='tiny'>
         <Modal.Header>Uusi Category</Modal.Header>
         <Modal.Content>

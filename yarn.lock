@@ -8700,6 +8700,13 @@ react-app-polyfill@^1.0.2:
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
 
+react-auto-controlled@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/react-auto-controlled/-/react-auto-controlled-0.2.4.tgz#49a57c3d5cdc8de1f4ec114a2d5aa810f64b730e"
+  integrity sha512-Emc15ZbpQjUUTcc1ChugDiutSdGAXTv1UPfnndY+RqqwgPrU82TQKfvh+4Dcca7c2NdpfK+w/qPE9NbnaIc0sQ==
+  dependencies:
+    lodash "^4.17.15"
+
 react-dev-utils@^9.0.3:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.1.0.tgz#3ad2bb8848a32319d760d0a84c56c14bdaae5e81"
@@ -9409,6 +9416,15 @@ semantic-ui-css@^2.4.1:
   integrity sha512-Pkp0p9oWOxlH0kODx7qFpIRYpK1T4WJOO4lNnpNPOoWKCrYsfHqYSKgk5fHfQtnWnsAKy7nLJMW02bgDWWFZFg==
   dependencies:
     jquery x.*
+
+semantic-ui-react-transition-modal@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/semantic-ui-react-transition-modal/-/semantic-ui-react-transition-modal-0.1.2.tgz#29d341cc4b8761b8edd50d1c4f60cd01ce016ee1"
+  integrity sha512-uK4Rxdo0NK6oZslGwcjOW6MStAb4jYH1ysM8WP8M9q+lm7MuA6X/i11VNvmXeKLtFGMsa/XxKEd6oHdZfcUyEw==
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    react-auto-controlled "^0.2.4"
 
 semantic-ui-react@^0.88.1:
   version "0.88.1"
