@@ -75,7 +75,7 @@ const UpdateCategory = ({ ...props } ) => {
     setTimeout(() => props.setModalOpen(), 2000)
     return (
       <Container>
-        <Header as='h3' color='green' data-cy='message'>{data.message}</Header>
+        <Header as='h3' color='green' data-cy='success-message'>{data.message}</Header>
       </Container>
     )
   }

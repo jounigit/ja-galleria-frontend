@@ -80,29 +80,31 @@ describe('The Albums Page', function() {
     before(function() {
       cy.loginByForm(email, password)
       cy.visit('/albums')
+    })
+
+    beforeEach(function() {
       cy.get('[data-cy=addNewAlbum]').click()
       cy.get('[data-cy=title]').type(title)
       cy.get('[data-cy=content]').type(content)
       cy.get('form').submit()
+      cy.visit('/albums')
     })
 
     after(function() {
-      cy.get('[data-cy=delete]').first().as('firstDeleteButton')
-      cy.get('@firstDeleteButton').click()
+      cy.get('[data-cy=delete]').first().click()
     })
 
     it('can update album', function() {
       const newType = 'Updated'
-      cy.get('[data-cy=albumListItem] .edit').first().as('firstUpdateButton')
-      // cy.get('[data-cy=update]').first().as('firstUpdateButton')
-      cy.get('@firstUpdateButton').click()
+      cy.get('[data-cy=albumListItem] .edit').first().click()
       cy.get('[type="title"]').clear()
       cy.get('[data-cy=title]').type(newType)
       cy.get('[data-cy=content]').type(content)
-      cy.get('select').find('option').first()
       cy.get('form').submit()
       cy.get('[data-cy=success-message]').should('be.visible')
-      // cy.get(':nth-child(3) > .divided > .item > .content > .header').should('contain', newType)
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(3000)
+      cy.get('[data-cy=header]').first().should('contain', newType)
 
     })
   })

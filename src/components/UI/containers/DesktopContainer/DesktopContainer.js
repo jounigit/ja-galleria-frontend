@@ -40,7 +40,7 @@ export default function DesktopContainer({ children }) {
             pointing={!fixed}
             secondary={!fixed}
             size='small'>
-            <Container>
+            <Container data-cy='menu'>
               <Menu.Item
                 as={NavLink}
                 to={routes.HOME}
@@ -73,12 +73,14 @@ export default function DesktopContainer({ children }) {
                     <Button as={Link}
                       to={routes.LOGIN}
                       name='login'
+                      data-cy='login'
                       inverted size='tiny'
                       content='Log in'
                     />
                     :
                     <Button as='a'
                       onClick={() => dispatch({ type: 'LOGOUT' })}
+                      data-cy='logout'
                       inverted size='tiny'>
                       Logout - {state.user.name}
                     </Button>

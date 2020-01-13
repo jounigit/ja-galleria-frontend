@@ -31,7 +31,7 @@ describe('The Categories Page', function() {
       cy.get('.CategoryList button:first').as('createButton')
     })
 
-    it.only('can see form', function() {
+    it('can see form', function() {
       cy.get('@createButton').should('contain', 'new category')
       cy.get('@createButton').click()
       cy.get('[data-cy=title]').should('be.visible')
@@ -45,13 +45,6 @@ describe('The Categories Page', function() {
     it('can see delete button', function() {
       cy.get('[data-cy=delete]').should('be.visible')
     })
-
-    // it('title is required', function() {
-    //   cy.get('[data-cy=addCategory]').click()
-    //   cy.get('input[name=content]').type('content{enter}')
-    //   cy.get('[data-cy=error-message]').should('be.visible')
-    //   cy.get('[data-cy=error-message]').should('contain', 'title is required!')
-    // })
   })
 
   context('create category', function() {
@@ -64,9 +57,8 @@ describe('The Categories Page', function() {
       cy.get('[data-cy=delete]').last().click()
     })
 
-    it.only('can add new category', function() {
-      cy.get('.CategoryList button:first').as('createButton')
-      cy.get('@createButton').click()
+    it('can add new category', function() {
+      cy.get('.CategoryList button:first').click()
       cy.get('[data-cy=title]').type(title)
       cy.get('[data-cy=content]').type(content)
       cy.get('form').submit()
@@ -81,7 +73,7 @@ describe('The Categories Page', function() {
     })
 
     beforeEach(function() {
-      cy.get('[data-cy=addCategory]').click()
+      cy.get('.CategoryList button:first').click()
       cy.get('[data-cy=title]').type(title)
       cy.get('[data-cy=content]').type(content)
       cy.get('form').submit()
@@ -94,12 +86,14 @@ describe('The Categories Page', function() {
 
     it('can update category', function() {
       const newType = 'Updated'
-      cy.get('[data-cy=update]').last().click()
-      // cy.get('@lasttUpdateButton').click()
+      cy.get('[data-cy=category] .edit').last().click()
       cy.get('[type="title"]').clear()
       cy.get('[data-cy=title]').type(newType)
       cy.get('[data-cy=content]').type(content)
       cy.get('form').submit()
+      cy.get('[data-cy=success-message]').should('be.visible')
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(3000)
       cy.get('[data-cy=header]').last().should('contain', newType)
 
     })
@@ -111,7 +105,7 @@ describe('The Categories Page', function() {
       cy.visit('/categories')
     })
     beforeEach(function() {
-      cy.get('[data-cy=addCategory]').click()
+      cy.get('.CategoryList button:first').click()
       cy.get('[data-cy=title]').type(title)
       cy.get('[data-cy=content]').type(content)
       cy.get('form').submit()

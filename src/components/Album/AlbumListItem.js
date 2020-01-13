@@ -19,7 +19,7 @@ const Album = ({ album }) => {
         <Item>
           <Item.Image size='small' src={firstPic} />
           <Item.Content>
-            <Item.Header>{album.title}</Item.Header>
+            <Item.Header data-cy='header'>{album.title}</Item.Header>
             <Item.Meta>
               <span className='stay'>Author - {album.user.name}</span>
             </Item.Meta>
