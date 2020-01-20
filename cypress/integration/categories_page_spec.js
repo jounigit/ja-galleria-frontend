@@ -31,7 +31,7 @@ describe('The Categories Page', function() {
       cy.get('.CategoryList button:first').as('createButton')
     })
 
-    it.only('can see form', function() {
+    it('can see form', function() {
       cy.get('@createButton').should('contain', 'new category')
       cy.get('@createButton').click()
       cy.get('[data-cy=title]').should('be.visible')

@@ -1,4 +1,6 @@
 /* eslint-disable jest/valid-expect-in-promise */
+/* eslint-disable jest/no-focused-tests */
+
 describe('Login page',  function() {
   const email = Cypress.env('email')
   const password = Cypress.env('password')
