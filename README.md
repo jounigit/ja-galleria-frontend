@@ -1,6 +1,7 @@
 Full Stack -websovelluskehitys
 
-frontend versio 1
+Frontend versio 1
+
 Sovelluksen backend repositoriossa: 
 https://github.com/jounigit/ja-galleria-backend
 
